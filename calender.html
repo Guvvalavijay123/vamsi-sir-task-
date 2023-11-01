@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcuter</title>
+</head>
+<style>
+    body{
+        font-size: 20px;
+        background-color: aliceblue;
+    }
+    button{
+        background-color: rgb(34, 105, 190);
+        border: 1px solid blue;
+        color: white;
+        padding: 10px;
+        font-size: medium;
+    }
+    div{
+        text-align: center;
+        width: 600px;
+        height: 320px;
+        border: 1px solid black;
+        margin-left: 450px;
+        margin-top:200px ;
+        border-radius: 20px;
+        background-color: white;
+        box-shadow: 5px 5px 20px;
+        
+    }
+    p,span{
+        font-weight: bold;
+    }
+    input{
+        width: 400px;
+        padding: 10px;
+    }
+</style>
+<body>
+         <div>
+    <h1>Age Calculator</h1>
+    <h3>Enter your date of birth</h3>
+    <input type="date" name="calender" id="press"><br><br>
+    <button onclick="calculate()">Calculate Age</button>
+
+    <h2 id="Output"></h2>
+
+   </div>
+
+
+        <script>
+                 function calculate(){
+            const date=new Date(document.getElementById("press").value);
+            const today=new Date();
+
+            const year=date.getFullYear();
+            const month=date.getMonth();
+            const day=date.getDate();
+
+            const todayyear=today.getFullYear();
+            const todaymonth=today.getMonth();
+            const todayday=today.getDate();
+
+            let years=todayyear-year;
+            let months=todaymonth-month;
+
+            if(todayday<day){
+                months--;
+            }
+            if(months<0){
+                years--;
+                months+=12;
+            }
+            document.getElementById("Output").textContent=`You are ${years} years 
+                and ${months} months old.`;
+        }
+    
+        </script>
+    
+</body>
+</html>

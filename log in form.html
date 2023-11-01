@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            display: none;
+            color: red;
+        }
+        */input {
+            display: block;
+            width: 220px;
+            margin: 20px;
+            margin-left: 490px;
+            outline: none;
+        }
+        section{ 
+            box-shadow: 2px 2px 5px ;
+            background-color: antiquewhite;
+            height: 350px;
+            width: 300px;
+            text-align: center;
+            margin-left: 600px;
+            padding-top: 30px;
+            margin-top: 100px;
+            background-color: white;
+        }
+        ::placeholder{
+            font-size: 15px;
+        }
+     
+    </style>
+</head>
+<body>
+    
+    <section>
+        <h1>NEW USER SIGN UP</h1>
+        <input type="text" oninput="firstresult()" id="firstname" placeholder="first name"><br><br>
+        <p id="name">FirstName should contain 5-15 characters</p>
+
+        <input type="text" oninput="userresult()" id="username" placeholder="user name"><br><br>
+        <p id="usernamerr">Username must be and contain 5-12 character</p>
+
+        <input type="text" oninput="emailresult()" id="emailname" placeholder="email"><br><br>
+        <p id="emailnamerr">email must be a valid address,e.g. me@mydomain.com</p>
+
+        <input type="text" oninput="passresult()" id="passname" placeholder="password"><br><br>
+        <p id="passnamerr">password must be alphanumeric(@,_and- are also allowed)and be 8-20 characters</p>
+
+        <input type="text" oninput="telephoneresult()" id="telephonename" placeholder="telephone"><br><br>
+        <p id="telephonenamerr">Telephone must be a valid indian telephone number(10 digits)</p>
+
+        <input type="text" oninput="pancardresult()" id="pancardname" placeholder="pancard"><br><br>
+        <p id="pancardnamerr">must be a valid pancard Number</p>
+    </section>
+
+    <script>
+        function firstresult() {
+            let firstinput = document.getElementById("firstname").value;
+            let firstregex = /^[A-Z][a-z]{4,15}$/
+
+            if (firstregex.test(firstinput)) {
+                document.getElementById("name").style.display = 'none';
+                document.getElementById('firstname').style.border = "2px solid green"
+            } else {
+                document.getElementById("firstname").style.border = "2px solid red"
+                document.getElementById("name").style.display = 'block'
+            }
+        }
+        //--------user validation----------
+
+        function userresult() {
+            let userinput = document.getElementById("username").value;
+            let userregex = /^[A-Za-z0-9]{5,12}$/
+
+            if (userregex.test(userinput)) {
+                document.getElementById("usernamerr").style.display = 'none';
+                document.getElementById('username').style.border = "2px solid green"
+
+            } else {
+                document.getElementById("username").style.border = "2px solid red"
+                document.getElementById("usernamerr").style.display = 'block'
+            }
+        }
+
+        //--------email validation----------
+
+        function emailresult() {
+            let emailinput = document.getElementById("emailname").value;
+            let emailregex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+            if (emailregex.test(emailinput)) {
+                document.getElementById("emailnamerr").style.display = 'none';
+                document.getElementById('emailname').style.border = "2px solid green"
+
+            } else {
+                document.getElementById("emailname").style.border = "2px solid red"
+                document.getElementById("emailnamerr").style.display = 'block'
+            }
+        }
+
+        //--------password validation----------
+
+        function passresult() {
+            let passinput = document.getElementById("passname").value;
+            let passregex = /^[a-zA-Z0-9@_-]{8,20}$/
+
+            if (passregex.test(passinput)) {
+                document.getElementById("passnamerr").style.display = 'none';
+                document.getElementById('passname').style.border = "2px solid green"
+
+            } else {
+                document.getElementById("passname").style.border = "2px solid red"
+                document.getElementById("passnamerr").style.display = 'block'
+            }
+        }
+
+        //--------telephone number validation----------
+
+        function telephoneresult() {
+            let telephoneinput = document.getElementById("telephonename").value;
+            let telephoneregex = /^[0-9]\d{9}$/
+
+            if (telephoneregex.test(telephoneinput)) {
+                document.getElementById("telephonenamerr").style.display = 'none';
+                document.getElementById('telephonename').style.border = "2px solid green"
+
+            } else {
+                document.getElementById("telephonename").style.border = "2px solid red"
+                document.getElementById("telephonenamerr").style.display = 'block'
+            }
+        }
+
+        //--------telephone number validation----------
+
+        function telephoneresult() {
+            let telephoneinput = document.getElementById("telephonename").value;
+            let telephoneregex = /^[0-9]\d{9}$/
+
+            if (telephoneregex.test(telephoneinput)) {
+                document.getElementById("telephonenamerr").style.display = 'none';
+                document.getElementById('telephonename').style.border = "2px solid green"
+
+            } else {
+                document.getElementById("telephonename").style.border = "2px solid red"
+                document.getElementById("telephonenamerr").style.display = 'block'
+            }
+        }
+
+        //--------pancard validation----------
+
+        function pancardresult() {
+            let pancardinput = document.getElementById("pancardname").value;
+            let pancardregex = /^[A-Z]{5}[0-9]{4}[A-Z]$/
+
+            if (pancardregex.test(pancardinput)) {
+                document.getElementById("pancardnamerr").style.display = 'none';
+                document.getElementById('pancardname').style.border = "2px solid green"
+
+            } else {
+                document.getElementById("pancardname").style.border = "2px solid red"
+                document.getElementById("pancardnamerr").style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>
